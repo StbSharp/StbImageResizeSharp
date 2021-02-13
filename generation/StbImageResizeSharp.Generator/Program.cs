@@ -20,6 +20,11 @@ namespace StbImageResizeSharp.Generator
 		{
 			data = Utility.ReplaceNativeCalls(data);
 
+			data = data.Replace("((void*)(0))", "null");
+			data = data.Replace("((void *)(0))", "null");
+			data = data.Replace("ulong input_stride_bytes = (ulong)(stbir_info.input_stride_bytes)", "int input_stride_bytes = stbir_info.input_stride_bytes");
+			data = data.Replace("(sizeof((stbir__filter_info_table)) / sizeof(((stbir__filter_info_table)[0])))", "stbir__filter_info_table.Length");
+
 			return data;
 		}
 
@@ -35,13 +40,13 @@ namespace StbImageResizeSharp.Generator
 				Class = "StbImageResize",
 				SkipStructs = new string[]
 				{
-						"stbir__filter_info",
-						"stbir__info",
-						"stbir__FP32"
+					"stbir__filter_info",
+					"stbir__info",
+					"stbir__FP32"
 				},
 				SkipGlobalVariables = new string[]
 				{
-						"stbir__filter_info_table"
+					"stbir__filter_info_table"
 				},
 				SkipFunctions = new[]
 				{
@@ -49,6 +54,7 @@ namespace StbImageResizeSharp.Generator
 				},
 				Classes = new string[]
 				{
+					"stbir__info",
 				},
 				GlobalArrays = new string[]
 				{

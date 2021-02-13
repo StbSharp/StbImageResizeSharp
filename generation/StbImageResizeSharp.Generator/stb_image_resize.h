@@ -255,7 +255,7 @@ STBIRDEF int stbir_resize_uint8_srgb(const unsigned char *input_pixels , int inp
                                      int num_channels, int alpha_channel, int flags);
 
 
-typedef enum
+typedef enum stbir_edge
 {
     STBIR_EDGE_CLAMP   = 1,
     STBIR_EDGE_REFLECT = 2,
@@ -284,7 +284,7 @@ STBIRDEF int stbir_resize_uint8_srgb_edgemode(const unsigned char *input_pixels 
 //     * sRGB colorspace available for all types
 //     * context parameter for passing to STBIR_MALLOC
 
-typedef enum
+typedef enum stbir_filter
 {
     STBIR_FILTER_DEFAULT      = 0,  // use same filter type that easy-to-use API chooses
     STBIR_FILTER_BOX          = 1,  // A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios
@@ -294,7 +294,7 @@ typedef enum
     STBIR_FILTER_MITCHELL     = 5,  // Mitchell-Netrevalli filter with B=1/3, C=1/3
 } stbir_filter;
 
-typedef enum
+typedef enum stbir_colorspace
 {
     STBIR_COLORSPACE_LINEAR,
     STBIR_COLORSPACE_SRGB,
@@ -337,7 +337,7 @@ STBIRDEF int stbir_resize_float_generic( const float *input_pixels         , int
 //     * can specify scale explicitly for subpixel correctness
 //     * can specify image source tile using texture coordinates
 
-typedef enum
+typedef enum stbir_datatype
 {
     STBIR_TYPE_UINT8 ,
     STBIR_TYPE_UINT16,
@@ -388,7 +388,7 @@ STBIRDEF int stbir_resize_region(  const void *input_pixels , int input_w , int 
 
 #ifndef STBIR_ASSERT
 #include <assert.h>
-#define STBIR_ASSERT(x) assert(x)
+#define STBIR_ASSERT(x)
 #endif
 
 // For memset
@@ -399,8 +399,8 @@ STBIRDEF int stbir_resize_region(  const void *input_pixels , int input_w , int 
 #ifndef STBIR_MALLOC
 #include <stdlib.h>
 // use comma operator to evaluate c, to avoid "unused parameter" warnings
-#define STBIR_MALLOC(size,c) ((void)(c), malloc(size))
-#define STBIR_FREE(ptr,c)    ((void)(c), free(ptr))
+#define STBIR_MALLOC(size,c) malloc(size)
+#define STBIR_FREE(ptr,c)    free(ptr)
 #endif
 
 #ifndef _MSC_VER
@@ -458,9 +458,9 @@ typedef unsigned char stbir__validate_uint32[sizeof(stbir_uint32) == 4 ? 1 : -1]
 
 
 #ifdef _MSC_VER
-#define STBIR__UNUSED_PARAM(v)  (void)(v)
+#define STBIR__UNUSED_PARAM(v)
 #else
-#define STBIR__UNUSED_PARAM(v)  (void)sizeof(v)
+#define STBIR__UNUSED_PARAM(v)
 #endif
 
 // must match stbir_datatype
