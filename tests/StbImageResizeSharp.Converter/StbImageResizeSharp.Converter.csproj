@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StbImageSharp" Version="2.22.5" />
+    <PackageReference Include="StbImageWriteSharp" Version="1.13.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\StbImageResizeSharp.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -37,24 +37,17 @@ namespace StbImageResizeSharp.Generator
 				{
 					"STB_IMAGE_RESIZE_IMPLEMENTATION"
 				},
-				Class = "StbImageResize",
 				SkipStructs = new string[]
 				{
-					"stbir__filter_info",
-					"stbir__info",
-					"stbir__FP32"
 				},
 				SkipGlobalVariables = new string[]
 				{
-					"stbir__filter_info_table"
 				},
-				SkipFunctions = new[]
+				SkipFunctions = new string[]
 				{
-					"stbir__linear_to_srgb_uchar"
 				},
 				Classes = new string[]
 				{
-					"stbir__info",
 				},
 				GlobalArrays = new string[]
 				{
