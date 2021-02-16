@@ -1,6 +1,6 @@
 # StbImageResizeSharp
 [![NuGet](https://img.shields.io/nuget/v/StbImageResizeSharp.svg)](https://www.nuget.org/packages/StbImageResizeSharp/) 
-![Build & Publish](https://github.com/rds1983/StbImageResizeSharp/workflows/Build%20&%20Publish/badge.svg)
+![Build & Publish](https://github.com/StbSharp/StbImageResizeSharp/workflows/Build%20&%20Publish/badge.svg)
 [![Chat](https://img.shields.io/discord/628186029488340992.svg)](https://discord.gg/ZeHxhCY)
 
 StbImageResizeSharp is C# port of the [stb_image_resize.h](https://github.com/nothings/stb/blob/master/stb_image_resize.h), which is C library to resize images.
