@@ -16,7 +16,7 @@ There are two ways of referencing StbImageResizeSharp in the project:
        
       * Add src/StbImageResizeSharp.csproj to the solution
        
-      * Include *.cs from folder "src" directly in the project. In this case, it might make sense to add StbImageResizeSharp_INTERNAL build compilation symbol to the project, so StbImageResizeSharp classes would become internal.
+      * Include *.cs from folder "src" directly in the project. In this case, it might make sense to add STBSHARP_INTERNAL build compilation symbol to the project, so StbImageResizeSharp classes would become internal.
      
 # Usage
 StbImageResizeSharp exposes API similar to [stb_image_resize.h](https://github.com/nothings/stb/blob/master/stb_image_resize.h). 
