@@ -20,10 +20,24 @@ There are two ways of referencing StbImageResizeSharp in the project:
      
 # Usage
 StbImageResizeSharp exposes API similar to [stb_image_resize.h](https://github.com/nothings/stb/blob/master/stb_image_resize.h). 
-Also adds some methods that pin input and output array.
+Also it adds some wrapper methods.
 
-Sample code to resize an image
+Sample code to load and resize an image
 ```c# 
+    // Load an image using StbImageSharp(https://github.com/StbSharp/StbImageSharp)
+    ImageResult image;
+    using(var stream = File.OpenRead("image.png"))
+    {
+      image = ImageResult.FromStream(stream);
+    }
+    
+    // Retrieve amount of channels in the image(from 1 to 4)
+    int channels = (int)image.Comp;
+
+    // Resize to 400x400
+    int newWidth = 400;
+    int newHeight = 400;
+    byte[] newImageData = new byte[newWidth * newHeight * channels];
     StbImageResize.stbir_resize_uint8(imageData, width, height, image.Width * channels,
         newImageData, newWidth, newHeight, newWidth * channels, channels);
 ```
